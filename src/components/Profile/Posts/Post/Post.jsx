@@ -2,16 +2,23 @@ import ava
     from "../../../../img/ava.jpg";
 
 
-const Post = ({message, likes}) => {
+const Post = ({message, likesCount}) => {
     return (
-        <div className="flex mb-[20px] items-center">
+        <div
+            className="flex mb-[20px] items-center">
             <div>
-                <img className="h-[75px] w-[75px] mr-[35px] rounded-full" src={ava} alt="avatar"/>
+                <img
+                    className="h-[75px] w-[75px] mr-[35px] rounded-full"
+                    src={ava}
+                    alt="avatar"/>
             </div>
-    <div className="w-[100%] flex justify-between">
-            <span className="text-2xl">{message}</span>
-            <span className="text-2xl">Нравится: {likes}</span>
-        </div>
+            <div
+                className="w-[100%] flex justify-between">
+                <span
+                    className="text-2xl">{message}</span>
+                <span
+                    className="text-2xl">Нравится: {likesCount}</span>
+            </div>
         </div>
     )
 }
