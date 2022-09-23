@@ -18,7 +18,8 @@ const Posts = () => {
                     </button>
                 </form>
             </div>
-            <Post/>
+            <Post message="Го доту" likes="6"/>
+            <Post message="Привет" likes="2"/>
         </div>
     )
 }
