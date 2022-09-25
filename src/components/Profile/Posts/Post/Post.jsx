@@ -2,7 +2,7 @@ import ava
     from "../../../../img/ava.jpg";
 
 
-const Post = ({message, likesCount}) => {
+const Post = ({id, message, likesCount}) => {
     return (
         <div
             className="flex mb-[20px] items-center">

@@ -6,7 +6,7 @@ const ProfileInfo = () => {
         <div>
             <div>
                 <img
-                    className="h-[300px] w-[100%]"
+                    className="h-[450px] w-[100%]"
                     src={bg} alt="фон"/>
             </div>
             <div className="flex my-[20px]">
@@ -19,7 +19,7 @@ const ProfileInfo = () => {
                     <h3 className="font-bold text-3xl mb-[20px]">Иван
                         М.</h3>
                     <p className="mb-[7px]">День
-                        рождения: 2 сентября</p>
+                        рождения: 2 сентября 1998 г.</p>
                     <p className="mb-[7px]">Город:
                         Омск</p>
                     <p className="mb-[7px]">Образование:

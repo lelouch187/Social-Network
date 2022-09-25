@@ -4,8 +4,8 @@ import {
 
 const NavBar = () => {
 
-    let activClassName = "block rounded-full bg-slate-50 text-[black]";
-    let defClassName = "block hover:bg-slate-50 hover:text-[black] rounded-full";
+    const activClassName = "block rounded-full bg-slate-50 text-[black]";
+    const defClassName = "block hover:bg-slate-50 hover:text-[black] rounded-full";
 
     return (
         <div

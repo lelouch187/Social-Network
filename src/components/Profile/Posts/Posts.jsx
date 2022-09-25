@@ -1,7 +1,13 @@
 import Post
     from "./Post/Post";
 
-const Posts = () => {
+const Posts = ({id, message,likesCount}) => {
+
+    const postsData = [
+        {id: 1, message: "Го доту", likesCount: 6},
+        {id: 2, message: "Привет", likesCount: 2},
+    ]
+
     return (
         <div>
             <div
@@ -18,8 +24,8 @@ const Posts = () => {
                     </button>
                 </form>
             </div>
-            <Post message="Го доту" likesCount="6"/>
-            <Post message="Привет" likesCount="2"/>
+            <Post id={postsData[0].id} message={postsData[0].message} likesCount={postsData[0].likesCount}/>
+            <Post id={postsData[1].id} message={postsData[1].message} likesCount={postsData[1].likesCount}/>
         </div>
     )
 }
