@@ -1,8 +1,12 @@
 import {
-    Link
+    NavLink
 } from "react-router-dom";
 
 const NavBar = () => {
+
+    let activClassName = "block rounded-full bg-slate-50 text-[black]";
+    let defClassName = "block hover:bg-slate-50 hover:text-[black] rounded-full";
+
     return (
         <div
             className="col-span-2 bg-slate-600 rounded">
@@ -10,24 +14,24 @@ const NavBar = () => {
                 className="py-[15px] px-[15px]">
                 <ul className="text-center">
                     <li className="mt-[10px]">
-                        <Link className="block hover:bg-slate-50 hover:text-[black] rounded-full"
-                           to="/">Профиль</Link>
+                        <NavLink className={({isActive}) =>isActive?activClassName:defClassName}
+                           to="/profile">Профиль</NavLink>
                     </li>
                     <li className="mt-[10px]">
-                        <Link className="block hover:bg-slate-50 hover:text-[black] rounded-full"
-                           to="/dialogs">Сообщения</Link>
+                        <NavLink className={({isActive}) =>isActive?activClassName:defClassName}
+                           to="/dialogs">Сообщения</NavLink>
                     </li>
                     <li className="mt-[10px]">
-                        <Link className="block hover:bg-slate-50 hover:text-[black] rounded-full"
-                           to="/news">Новости</Link>
+                        <NavLink className={({isActive}) =>isActive?activClassName:defClassName}
+                           to="/news">Новости</NavLink>
                     </li>
                     <li className="mt-[10px]">
-                        <Link className="block hover:bg-slate-50 hover:text-[black] rounded-full"
-                           to="/music">Музыка</Link>
+                        <NavLink className={({isActive}) =>isActive?activClassName:defClassName}
+                           to="/music">Музыка</NavLink>
                     </li>
                     <li className="mt-[40px]">
-                        <Link className="block hover:bg-slate-50 hover:text-[black] rounded-full"
-                           to="/settings">Настройки</Link>
+                        <NavLink className={({isActive}) =>isActive?activClassName:defClassName}
+                           to="/settings">Настройки</NavLink>
                     </li>
                 </ul>
             </nav>
