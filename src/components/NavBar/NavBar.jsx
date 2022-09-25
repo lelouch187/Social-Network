@@ -1,3 +1,7 @@
+import {
+    Link
+} from "react-router-dom";
+
 const NavBar = () => {
     return (
         <div
@@ -6,24 +10,24 @@ const NavBar = () => {
                 className="py-[15px] px-[15px]">
                 <ul className="text-center">
                     <li className="mt-[10px]">
-                        <a className="block hover:bg-slate-50 hover:text-[black] rounded-full"
-                           href="src/components/NavBar/NavBar#">Профиль</a>
+                        <Link className="block hover:bg-slate-50 hover:text-[black] rounded-full"
+                           to="/">Профиль</Link>
                     </li>
                     <li className="mt-[10px]">
-                        <a className="block hover:bg-slate-50 hover:text-[black] rounded-full"
-                           href="src/components/NavBar/NavBar#">Сообщения</a>
+                        <Link className="block hover:bg-slate-50 hover:text-[black] rounded-full"
+                           to="/dialogs">Сообщения</Link>
                     </li>
                     <li className="mt-[10px]">
-                        <a className="block hover:bg-slate-50 hover:text-[black] rounded-full"
-                           href="src/components/NavBar/NavBar#">Новости</a>
+                        <Link className="block hover:bg-slate-50 hover:text-[black] rounded-full"
+                           to="/news">Новости</Link>
                     </li>
                     <li className="mt-[10px]">
-                        <a className="block hover:bg-slate-50 hover:text-[black] rounded-full"
-                           href="src/components/NavBar/NavBar#">Музыка</a>
+                        <Link className="block hover:bg-slate-50 hover:text-[black] rounded-full"
+                           to="/music">Музыка</Link>
                     </li>
                     <li className="mt-[40px]">
-                        <a className="block hover:bg-slate-50 hover:text-[black] rounded-full"
-                           href="src/components/NavBar/NavBar#">Настройки</a>
+                        <Link className="block hover:bg-slate-50 hover:text-[black] rounded-full"
+                           to="/settings">Настройки</Link>
                     </li>
                 </ul>
             </nav>
