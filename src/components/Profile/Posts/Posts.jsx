@@ -1,12 +1,7 @@
 import Post
     from "./Post/Post";
 
-const Posts = ({id, message,likesCount}) => {
-
-    const postsData = [
-        {id: 1, message: "Го доту", likesCount: 6},
-        {id: 2, message: "Привет", likesCount: 2},
-    ]
+const Posts = ({postsData}) => {
 
     const postsElements = postsData.map (e => <Post id={e.id} message={e.message} likesCount={e.likesCount}/>
     )

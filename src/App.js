@@ -17,7 +17,7 @@ import {
     Route
 } from "react-router-dom";
 
-const App =() => {
+const App =({postsData, dialogsData, messagesData}) => {
   return (
       <BrowserRouter>
           <div
@@ -25,8 +25,8 @@ const App =() => {
               <Header/>
               <NavBar/>
               <Routes>
-                  <Route path="/profile" element={<Profile/>}/>
-                  <Route path="dialogs/*" element={<Dialogs/>}/>
+                  <Route path="/profile" element={<Profile postsData={postsData}/>}/>
+                  <Route path="dialogs/*" element={<Dialogs dialogsData={dialogsData} messagesData={messagesData}/>}/>
                   <Route path="/news" element={<News/>}/>
                   <Route path="/music" element={<Music/>}/>
                   <Route path="/settings" element={<Settings/>}/>
