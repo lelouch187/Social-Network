@@ -6,11 +6,11 @@ import Posts
 import ProfileInfo
     from "./ProfileInfo/ProfileInfo";
 
-const Profile = ({postsData}) => {
+const Profile = ({profilePage}) => {
     return (
         <div className=" col-span-8">
             <ProfileInfo />
-            <Posts postsData={postsData} />
+            <Posts postsData={profilePage.posts} />
         </div>
     )
 }

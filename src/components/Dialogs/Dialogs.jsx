@@ -2,10 +2,10 @@ import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
 
 
-const Dialogs = ({dialogsData, messagesData}) => {
+const Dialogs = ({messagesPage}) => {
 
-    const dialogElements = dialogsData.map (dialog => <DialogItem name={dialog.name} id={dialog.id} />)
-    const messagesElements = messagesData.map (message => <Message id={message.id} message={message.message} />)
+    const dialogElements = messagesPage.dialogs.map (dialog => <DialogItem name={dialog.name} id={dialog.id} />)
+    const messagesElements = messagesPage.messages.map (message => <Message id={message.id} message={message.message} />)
 
     return(
         <div>

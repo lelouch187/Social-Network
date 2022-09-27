@@ -1,11 +1,15 @@
 import {
     NavLink
 } from "react-router-dom";
+import FriendsItem
+    from "./FriendsItem/FriendsItem";
 
-const NavBar = () => {
+const NavBar = ({sideBar}) => {
 
     const activClassName = "block rounded-full bg-slate-50 text-[black]";
     const defClassName = "block hover:bg-slate-50 hover:text-[black] rounded-full";
+
+    let friendElements = sideBar.friends.map( friend => <FriendsItem name={friend.name} id={friend.id} />)
 
     return (
         <div
@@ -32,6 +36,14 @@ const NavBar = () => {
                     <li className="mt-[40px]">
                         <NavLink className={({isActive}) =>isActive?activClassName:defClassName}
                            to="/settings">Настройки</NavLink>
+                    </li>
+                    <li className="mt-[80px]">
+                        <div>
+                            <p>Друзья</p>
+                            <div className="flex mt-[10px]">
+                                {friendElements}
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </nav>
