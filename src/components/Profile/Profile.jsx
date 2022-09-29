@@ -8,7 +8,7 @@ import ProfileInfo
 
 const Profile = ({profilePage}) => {
     return (
-        <div className=" col-span-8">
+        <div className="col-span-8">
             <ProfileInfo />
             <Posts postsData={profilePage.posts} />
         </div>

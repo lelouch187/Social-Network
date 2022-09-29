@@ -1,3 +1,4 @@
+import React from "react";
 import Post
     from "./Post/Post";
 
@@ -6,17 +7,24 @@ const Posts = ({postsData}) => {
     const postsElements = postsData.map (e => <Post id={e.id} message={e.message} likesCount={e.likesCount}/>
     )
 
+    const newPost = React.createRef()
+
+    const addPost = () => {
+        const text = newPost.current.value
+        alert(text)
+    }
+
     return (
         <div>
             <div
                 className="pb-[80px] ml-[5px]">
                 <h3 className="font-bold text-3xl mb-[20px]">Посты</h3>
                 <form>
-                    <input
+                    <input ref={newPost}
                         className="h-[70px] focus:ring-2 focus:ring-red-500 focus:outline-none appearance-none w-full text-xl leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
                         type="text"
                         placeholder="Твои новости ..."/>
-                    <button
+                    <button onClick={addPost}
                         className="inline-block float-right mt-[20px] hover:bg-red-400 group rounded-md bg-red-500 text-white text-sm font-medium pl-2 pr-3 py-2 shadow-sm"
                         type="submit">Опубликовать
                     </button>

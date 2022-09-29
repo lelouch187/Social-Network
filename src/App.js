@@ -12,14 +12,12 @@ import Music
 import Settings
     from "./components/Settings/Settings";
 import {
-    BrowserRouter,
     Routes,
     Route
 } from "react-router-dom";
 
 const App =({state}) => {
   return (
-      <BrowserRouter>
           <div
               className="pt-[20px] w-5/12 mx-auto grid grid-cols-10 gap-[20px] ">
               <Header/>
@@ -32,7 +30,6 @@ const App =({state}) => {
                   <Route path="/settings" element={<Settings/>}/>
               </Routes>
           </div>
-      </BrowserRouter>
   );
 }
 
