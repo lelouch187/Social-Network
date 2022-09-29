@@ -1,16 +1,17 @@
-import bg from "../../img/bg.jpg";
-import ava
-    from "../../img/ava.jpg";
 import Posts
     from "./Posts/Posts";
 import ProfileInfo
     from "./ProfileInfo/ProfileInfo";
 
-const Profile = ({profilePage}) => {
+const Profile = ({profilePage, addPost, changeTextPost}) => {
     return (
         <div className="col-span-8">
             <ProfileInfo />
-            <Posts postsData={profilePage.posts} />
+            <Posts postsData={profilePage.posts}
+                   addPost={addPost}
+                   changeTextPost={changeTextPost}
+                   textNewPost={profilePage.textNewPost}
+            />
         </div>
     )
 }

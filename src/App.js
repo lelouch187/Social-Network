@@ -16,14 +16,14 @@ import {
     Route
 } from "react-router-dom";
 
-const App =({state}) => {
+const App =({state, addPost, changeTextPost}) => {
   return (
           <div
               className="pt-[20px] w-5/12 mx-auto grid grid-cols-10 gap-[20px] ">
               <Header/>
               <NavBar sideBar={state.sideBar}/>
               <Routes>
-                  <Route path="/profile" element={<Profile profilePage={state.profilePage}/>}/>
+                  <Route path="/profile" element={<Profile profilePage={state.profilePage} changeTextPost={changeTextPost} addPost={addPost}/>}/>
                   <Route path="dialogs/*" element={<Dialogs messagesPage={state.messagesPage}/>}/>
                   <Route path="/news" element={<News/>}/>
                   <Route path="/music" element={<Music/>}/>
@@ -32,5 +32,4 @@ const App =({state}) => {
           </div>
   );
 }
-
 export default App;
