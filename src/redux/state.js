@@ -1,4 +1,4 @@
-import {render} from "../render";
+let render
 
 let state = {
     profilePage:{
@@ -17,7 +17,8 @@ let state = {
         messages: [
             {message:"Привет", id:1},
             {message:"Дота?", id:2}
-        ]
+        ],
+        textNewMessage:'',
     },
     sideBar: {
         friends: [
@@ -28,16 +29,32 @@ let state = {
     },
 }
 
-export let addPost = () => {
+export const addPost = () => {
     let newItemPost = {id: 3, message: state.profilePage.textNewPost, likesCount: 0}
     state.profilePage.posts.push(newItemPost)
     state.profilePage.textNewPost = ''
     render(state)
 }
 
-export let changeTextPost = (text) => {
+export const changeTextPost = (text) => {
     state.profilePage.textNewPost = text
     render(state)
+}
+
+export const addMessage = () => {
+    let newItemMessage = {message: state.messagesPage.textNewMessage, id: 3}
+    state.messagesPage.messages.push(newItemMessage)
+    state.messagesPage.textNewMessage = ''
+    render(state)
+}
+
+export const changeTextMessage = (text) => {
+    state.messagesPage.textNewMessage = text
+    render(state)
+}
+
+export const subscribe = (observer) => {
+    render = observer
 }
 
 

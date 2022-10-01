@@ -3,16 +3,16 @@ import DialogItem from "./DialogItem/DialogItem";
 import React from "react";
 
 
-const Dialogs = ({messagesPage}) => {
+const Dialogs = ({messagesPage, changeTextMessage, addMessage}) => {
 
     const dialogElements = messagesPage.dialogs.map (dialog => <DialogItem name={dialog.name} id={dialog.id} />)
     const messagesElements = messagesPage.messages.map (message => <Message id={message.id} message={message.message} />)
 
     const newMessage = React.createRef()
 
-    const addMessage = () => {
-       const text = newMessage.current.value
-        alert(text)
+    let changeMessage = () => {
+       let text = newMessage.current.value
+        changeTextMessage(text)
     }
 
     return(
@@ -28,12 +28,14 @@ const Dialogs = ({messagesPage}) => {
             </div>
             <form className="w-[100%] mt-[30px]">
                 <input ref={newMessage}
+                       onChange={changeMessage}
+                       value={messagesPage.textNewMessage}
                        className="h-[70px] focus:ring-2 focus:ring-red-500 focus:outline-none appearance-none w-full text-xl leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
                        type="text"
                        placeholder="Введите сообщение"/>
                 <button onClick={addMessage}
                         className="inline-block float-right mt-[20px] hover:bg-red-400 group rounded-md bg-red-500 text-white text-sm font-medium pl-2 pr-3 py-2 shadow-sm"
-                        type="submit">Опубликовать
+                        type="button">Опубликовать
                 </button>
             </form>
         </div>

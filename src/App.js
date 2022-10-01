@@ -16,7 +16,7 @@ import {
     Route
 } from "react-router-dom";
 
-const App =({state, addPost, changeTextPost}) => {
+const App =({state, addPost, changeTextPost, addMessage, changeTextMessage}) => {
   return (
           <div
               className="pt-[20px] w-5/12 mx-auto grid grid-cols-10 gap-[20px] ">
@@ -24,7 +24,7 @@ const App =({state, addPost, changeTextPost}) => {
               <NavBar sideBar={state.sideBar}/>
               <Routes>
                   <Route path="/profile" element={<Profile profilePage={state.profilePage} changeTextPost={changeTextPost} addPost={addPost}/>}/>
-                  <Route path="dialogs/*" element={<Dialogs messagesPage={state.messagesPage}/>}/>
+                  <Route path="dialogs/*" element={<Dialogs messagesPage={state.messagesPage} changeTextMessage={changeTextMessage} addMessage={addMessage} />}/>
                   <Route path="/news" element={<News/>}/>
                   <Route path="/music" element={<Music/>}/>
                   <Route path="/settings" element={<Settings/>}/>
