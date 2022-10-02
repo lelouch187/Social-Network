@@ -1,8 +1,4 @@
-import state, {
-    addMessage,
-    addPost, changeTextMessage,
-    changeTextPost, subscribe
-} from "./redux/state";
+import {store} from "./redux/state";
 import ReactDOM from "react-dom/client";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
@@ -17,12 +13,16 @@ const render = (state) => {
         <BrowserRouter>
             <div
                 className="min-h-[100vh] bg-slate-900 font-sans text-xl subpixel-antialiased text-[#fff] tracking-wider">
-                <App state={state} changeTextPost={changeTextPost} addPost={addPost} addMessage={addMessage} changeTextMessage={changeTextMessage}/>
+                <App state={store.getState()}
+                     changeTextPost={store.changeTextPost.bind(store)}
+                     addPost={store.addPost.bind(store)}
+                     addMessage={store.addMessage.bind(store)}
+                     changeTextMessage={store.changeTextMessage.bind(store)}/>
             </div>
         </BrowserRouter>
     );
 }
 
-render(state)
+render(store.getState())
 
-subscribe(render)
+store.subscribe(render)

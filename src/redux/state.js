@@ -1,62 +1,57 @@
-let render
-
-let state = {
-    profilePage:{
-        posts: [
-            {id: 1, message: "Го доту", likesCount: 6},
-            {id: 2, message: "Привет", likesCount: 2},
-        ],
-        textNewPost:'',
+export const store = {
+    _state: {
+        profilePage:{
+            posts: [
+                {id: 1, message: "Го доту", likesCount: 6},
+                {id: 2, message: "Привет", likesCount: 2},
+            ],
+            textNewPost:'',
+        },
+        messagesPage: {
+            dialogs: [
+                {name:"Иван", id: 1},
+                {name:"Александр", id: 2},
+                {name:"Захар", id: 3}
+            ],
+            messages: [
+                {message:"Привет", id:1},
+                {message:"Дота?", id:2}
+            ],
+            textNewMessage:'',
+        },
+        sideBar: {
+            friends: [
+                {name:"Иван", id: 1},
+                {name:"Александр", id: 2},
+                {name:"Захар", id: 3}
+            ]
+        },
     },
-    messagesPage: {
-        dialogs: [
-            {name:"Иван", id: 1},
-            {name:"Александр", id: 2},
-            {name:"Захар", id: 3}
-        ],
-        messages: [
-            {message:"Привет", id:1},
-            {message:"Дота?", id:2}
-        ],
-        textNewMessage:'',
+    _render() {},
+    getState() {
+        return this._state
     },
-    sideBar: {
-        friends: [
-            {name:"Иван", id: 1},
-            {name:"Александр", id: 2},
-            {name:"Захар", id: 3}
-        ]
+    addPost () {
+        let newItemPost = {id: 3, message: this._state.profilePage.textNewPost, likesCount: 0}
+        this._state.profilePage.posts.push(newItemPost)
+        this._state.profilePage.textNewPost = ''
+        this._render(this._state)
     },
+    changeTextPost (text) {
+        this._state.profilePage.textNewPost = text
+        this._render(this._state)
+    },
+    addMessage () {
+        let newItemMessage = {message: this._state.messagesPage.textNewMessage, id: 3}
+        this._state.messagesPage.messages.push(newItemMessage)
+        this._state.messagesPage.textNewMessage = ''
+        this._render(this._state)
+    },
+    changeTextMessage (text) {
+        this._state.messagesPage.textNewMessage = text
+        this._render(this._state)
+    },
+    subscribe (observer) {
+        this._render = observer
+    }
 }
-
-export const addPost = () => {
-    let newItemPost = {id: 3, message: state.profilePage.textNewPost, likesCount: 0}
-    state.profilePage.posts.push(newItemPost)
-    state.profilePage.textNewPost = ''
-    render(state)
-}
-
-export const changeTextPost = (text) => {
-    state.profilePage.textNewPost = text
-    render(state)
-}
-
-export const addMessage = () => {
-    let newItemMessage = {message: state.messagesPage.textNewMessage, id: 3}
-    state.messagesPage.messages.push(newItemMessage)
-    state.messagesPage.textNewMessage = ''
-    render(state)
-}
-
-export const changeTextMessage = (text) => {
-    state.messagesPage.textNewMessage = text
-    render(state)
-}
-
-export const subscribe = (observer) => {
-    render = observer
-}
-
-
-
-export default state
