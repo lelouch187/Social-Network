@@ -1,6 +1,10 @@
 import Message from "./Message/Message";
 import DialogItem from "./DialogItem/DialogItem";
 import React from "react";
+import {
+    addMessageActionCreator,
+    changeMessageActionCreator
+} from "../../redux/state";
 
 
 const Dialogs = ({messagesPage, dispatch}) => {
@@ -11,12 +15,12 @@ const Dialogs = ({messagesPage, dispatch}) => {
     const newMessage = React.createRef()
 
     let addMessage = () => {
-        dispatch({type: 'ADD-MESSAGE'})
+        dispatch(addMessageActionCreator())
     }
 
     let changeMessage = () => {
        let text = newMessage.current.value
-        dispatch({type: 'CHANGE-TEXT-MESSAGE', text: text})
+        dispatch(changeMessageActionCreator(text))
     }
 
     return(

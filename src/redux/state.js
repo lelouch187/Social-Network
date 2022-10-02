@@ -1,3 +1,8 @@
+const addPost = 'ADD-POST'
+const changeTextPost = 'CHANGE-TEXT-POST'
+const addMessage = 'ADD-MESSAGE'
+const changeTextMessage = 'CHANGE-TEXT-MESSAGE'
+
 export const store = {
     _state: {
         profilePage:{
@@ -38,25 +43,33 @@ export const store = {
 
     dispatch (action) {
         switch (action.type) {
-            case 'ADD-POST' :
+            case addPost :
                 let newItemPost = {id: 3, message: this._state.profilePage.textNewPost, likesCount: 0}
                 this._state.profilePage.posts.push(newItemPost)
                 this._state.profilePage.textNewPost = ''
                 this._render(this._state)
                 break
-            case 'CHANGE-TEXT-POST' :
-                this._state.profilePage.textNewPost = action.text
+            case changeTextPost :
+                this._state.profilePage.textNewPost = action.newText
                 this._render(this._state)
                 break
-            case 'ADD-MESSAGE' :
+            case addMessage :
                 let newItemMessage = {message: this._state.messagesPage.textNewMessage, id: 3}
                 this._state.messagesPage.messages.push(newItemMessage)
                 this._state.messagesPage.textNewMessage = ''
                 this._render(this._state)
                 break
-            case 'CHANGE-TEXT-MESSAGE' :
-                this._state.messagesPage.textNewMessage = action.text
+            case changeTextMessage :
+                this._state.messagesPage.textNewMessage = action.newText
                 this._render(this._state)
+                break
             }
         },
     }
+
+export const addMessageActionCreator = () => ({type: 'ADD-MESSAGE'})
+export const changeMessageActionCreator = (text) => ({type: 'CHANGE-TEXT-MESSAGE', newText: text})
+export const addPostActionCreator = () => ({type: 'ADD-POST'})
+export const changePostActionCreator = (text) => ({type: 'CHANGE-TEXT-POST', newText: text})
+
+
