@@ -2,16 +2,20 @@ import React from "react";
 import Post
     from "./Post/Post";
 
-const Posts = ({postsData, addPost, changeTextPost, textNewPost}) => {
+const Posts = ({postsData, dispatch, textNewPost}) => {
 
     const postsElements = postsData.map (e => <Post id={e.id} message={e.message} likesCount={e.likesCount}/>
     )
 
     let newPost = React.createRef()
 
+    let  addPost = () => {
+        dispatch({type: 'ADD-POST'})
+    }
+
     let changePost = () => {
       let  text = newPost.current.value
-        changeTextPost(text)
+        dispatch({type: 'CHANGE-TEXT-POST', text: text})
     }
 
 

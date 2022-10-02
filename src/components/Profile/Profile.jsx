@@ -3,13 +3,12 @@ import Posts
 import ProfileInfo
     from "./ProfileInfo/ProfileInfo";
 
-const Profile = ({profilePage, addPost, changeTextPost}) => {
+const Profile = ({profilePage, dispatch}) => {
     return (
         <div className="col-span-8">
             <ProfileInfo />
             <Posts postsData={profilePage.posts}
-                   addPost={addPost}
-                   changeTextPost={changeTextPost}
+                   dispatch={dispatch}
                    textNewPost={profilePage.textNewPost}
             />
         </div>

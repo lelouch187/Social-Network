@@ -3,16 +3,20 @@ import DialogItem from "./DialogItem/DialogItem";
 import React from "react";
 
 
-const Dialogs = ({messagesPage, changeTextMessage, addMessage}) => {
+const Dialogs = ({messagesPage, dispatch}) => {
 
     const dialogElements = messagesPage.dialogs.map (dialog => <DialogItem name={dialog.name} id={dialog.id} />)
     const messagesElements = messagesPage.messages.map (message => <Message id={message.id} message={message.message} />)
 
     const newMessage = React.createRef()
 
+    let addMessage = () => {
+        dispatch({type: 'ADD-MESSAGE'})
+    }
+
     let changeMessage = () => {
        let text = newMessage.current.value
-        changeTextMessage(text)
+        dispatch({type: 'CHANGE-TEXT-MESSAGE', text: text})
     }
 
     return(

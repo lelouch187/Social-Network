@@ -14,10 +14,8 @@ const render = (state) => {
             <div
                 className="min-h-[100vh] bg-slate-900 font-sans text-xl subpixel-antialiased text-[#fff] tracking-wider">
                 <App state={store.getState()}
-                     changeTextPost={store.changeTextPost.bind(store)}
-                     addPost={store.addPost.bind(store)}
-                     addMessage={store.addMessage.bind(store)}
-                     changeTextMessage={store.changeTextMessage.bind(store)}/>
+                     dispatch = {store.dispatch.bind(store)}
+                />
             </div>
         </BrowserRouter>
     );
