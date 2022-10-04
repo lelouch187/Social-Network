@@ -1,23 +1,21 @@
 import React from "react";
 import Post
     from "./Post/Post";
-import {
-    addPostActionCreator, changePostActionCreator
-} from "../../../redux/profile-page-reducer";
 
-const Posts = ({postsData, dispatch, textNewPost}) => {
 
-    const postsElements = postsData.map (e => <Post id={e.id} message={e.message} likesCount={e.likesCount}/>
+const Posts = ({changeTextPost, addPosts, textNewPost, posts}) => {
+
+    const postsElements = posts.map (e => <Post id={e.id} message={e.message} likesCount={e.likesCount}/>
     )
 
 
     let  addPost = () => {
-        dispatch(addPostActionCreator())
+        addPosts()
     }
 
     let changePost = (e) => {
       let  text = e.target.value
-        dispatch(changePostActionCreator(text))
+        changeTextPost(text)
     }
 
 

@@ -13,9 +13,7 @@ const render = (state) => {
         <BrowserRouter>
             <div
                 className="min-h-[100vh] bg-slate-900 font-sans text-xl subpixel-antialiased text-[#fff] tracking-wider">
-                <App state={store.getState()}
-                     dispatch = {store.dispatch.bind(store)}
-                />
+                <App store={store} />
             </div>
         </BrowserRouter>
     );

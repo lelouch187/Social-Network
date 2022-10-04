@@ -4,11 +4,13 @@ import {
 import FriendsItem
     from "./FriendsItem/FriendsItem";
 
-const NavBar = ({sideBar}) => {
+const NavBar = ({store}) => {
+
+    let state = store.getState().sideBar
 
     const activClassName = "block rounded-full bg-slate-50 text-[black]";
     const defClassName = "block hover:bg-slate-50 hover:text-[black] rounded-full";
-    let friendElements = sideBar.friends.map( friend => <FriendsItem name={friend.name} id={friend.id} />)
+    let friendElements = state.friends.map( friend => <FriendsItem name={friend.name} id={friend.id} />)
 
     return (
         <div
