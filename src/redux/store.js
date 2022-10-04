@@ -2,6 +2,7 @@ import profilePageReducer
     from "./profile-page-reducer";
 import messagesPageReducer
     from "./messages-page-reducer";
+import sideBarReducer from "./side-bar-reducer";
 
 export const store = {
     _state: {
@@ -42,8 +43,9 @@ export const store = {
     },
 
     dispatch (action) {
-        profilePageReducer(this._state.profilePage, action)
-        messagesPageReducer(this._state.messagesPage, action)
+        this._state.profilePage = profilePageReducer(this._state.profilePage, action)
+        this._state.messagesPage = messagesPageReducer(this._state.messagesPage, action)
+        this._state.sideBar = sideBarReducer(this._state.sideBar, action)
         this._render(this._state)
         },
     }

@@ -8,7 +8,6 @@ const NavBar = ({sideBar}) => {
 
     const activClassName = "block rounded-full bg-slate-50 text-[black]";
     const defClassName = "block hover:bg-slate-50 hover:text-[black] rounded-full";
-
     let friendElements = sideBar.friends.map( friend => <FriendsItem name={friend.name} id={friend.id} />)
 
     return (

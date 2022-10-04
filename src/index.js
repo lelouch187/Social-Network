@@ -1,4 +1,4 @@
-import {store} from "./redux/state";
+import store from "./redux/redux-store";
 import ReactDOM from "react-dom/client";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
@@ -23,4 +23,7 @@ const render = (state) => {
 
 render(store.getState())
 
-store.subscribe(render)
+store.subscribe(() => {
+    let state = store.getState()
+    render(state)
+})
