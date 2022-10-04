@@ -4,7 +4,7 @@ import React from "react";
 import {
     addMessageActionCreator,
     changeMessageActionCreator
-} from "../../redux/state";
+} from "../../redux/messages-page-reducer";
 
 
 const Dialogs = ({messagesPage, dispatch}) => {
@@ -12,14 +12,13 @@ const Dialogs = ({messagesPage, dispatch}) => {
     const dialogElements = messagesPage.dialogs.map (dialog => <DialogItem name={dialog.name} id={dialog.id} />)
     const messagesElements = messagesPage.messages.map (message => <Message id={message.id} message={message.message} />)
 
-    const newMessage = React.createRef()
 
     let addMessage = () => {
         dispatch(addMessageActionCreator())
     }
 
-    let changeMessage = () => {
-       let text = newMessage.current.value
+    let changeMessage = (e) => {
+       let text = e.target.value
         dispatch(changeMessageActionCreator(text))
     }
 
@@ -35,8 +34,7 @@ const Dialogs = ({messagesPage, dispatch}) => {
                 </div>
             </div>
             <form className="w-[100%] mt-[30px]">
-                <input ref={newMessage}
-                       onChange={changeMessage}
+                <input onChange={changeMessage}
                        value={messagesPage.textNewMessage}
                        className="h-[70px] focus:ring-2 focus:ring-red-500 focus:outline-none appearance-none w-full text-xl leading-6 text-slate-900 placeholder-slate-400 rounded-md py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
                        type="text"
