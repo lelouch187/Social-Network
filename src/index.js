@@ -4,24 +4,23 @@ import {BrowserRouter} from "react-router-dom";
 import App from "./App";
 import React from "react";
 import './index.css'
+import {Provider} from "react-redux";
 
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const render = (state) => {
+const render = () => {
     root.render(
         <BrowserRouter>
-            <div
-                className="min-h-[100vh] bg-slate-900 font-sans text-xl subpixel-antialiased text-[#fff] tracking-wider">
-                <App store={store} />
-            </div>
+            <Provider store={store}>
+                <App />
+            </Provider>
         </BrowserRouter>
     );
 }
 
-render(store.getState())
+render()
 
 store.subscribe(() => {
-    let state = store.getState()
-    render(state)
+    render()
 })
