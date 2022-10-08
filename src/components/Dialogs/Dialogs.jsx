@@ -5,8 +5,8 @@ import React from "react";
 
 const Dialogs = ({messages, addMessage, textNewMessage, changeTextMessage, dialogs}) => {
 
-    const dialogElements = dialogs.map (dialog => <DialogItem name={dialog.name} id={dialog.id} />)
-    const messagesElements = messages.map (message => <Message id={message.id} message={message.message} />)
+    const dialogElements = dialogs.map (d => <DialogItem name={d.name} key={d.id} id={d.id} />)
+    const messagesElements = messages.map (m => <Message id={m.id} key={m.id} message={m.message} />)
 
 
     let addMessages = () => {

@@ -5,7 +5,7 @@ import Post
 
 const Posts = ({changePost, addPost, textNewPost, posts}) => {
 
-    const postsElements = posts.map (e => <Post id={e.id} message={e.message} likesCount={e.likesCount}/>
+    const postsElements = posts.map (e => <Post id={e.id} key={e.id} message={e.message} likesCount={e.likesCount}/>
     )
 
 
