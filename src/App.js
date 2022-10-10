@@ -16,8 +16,9 @@ import DialogsContainer
     from "./components/Dialogs/DialogsContainer";
 import NavBarContainer
     from "./components/NavBar/NavBarContainer";
-import FindUsers
-    from "./components/FindUsers/FindUsers";
+import FindUsersContainer
+    from "./components/FindUsers/FindUsersContainer";
+
 
 const App =() => {
   return (
@@ -38,7 +39,7 @@ const App =() => {
                   <Route path="/music"
                          element={<Music/>}/>
                   <Route path="/users"
-                         element={<FindUsers/>}/>
+                         element={<FindUsersContainer/>}/>
                   <Route path="/settings"
                          element={<Settings/>}/>
               </Routes>

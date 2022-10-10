@@ -8,7 +8,7 @@ const NavBar = ({friends}) => {
 
     const activClassName = "block rounded-full bg-slate-50 text-[black]";
     const defClassName = "block hover:bg-slate-50 hover:text-[black] rounded-full";
-    let friendElements = friends.map( friend => <FriendsItem name={friend.name} id={friend.id} />)
+    let friendElements = friends.map( f => <FriendsItem name={f.name} id={f.id} key={f.id} />)
 
     return (
         <div
@@ -31,6 +31,10 @@ const NavBar = ({friends}) => {
                     <li className="mt-[10px]">
                         <NavLink className={({isActive}) =>isActive?activClassName:defClassName}
                            to="/music">Музыка</NavLink>
+                    </li>
+                    <li className="mt-[25px]">
+                        <NavLink className={({isActive}) =>isActive?activClassName:defClassName}
+                                 to="/users">Найти пользователей</NavLink>
                     </li>
                     <li className="mt-[40px]">
                         <NavLink className={({isActive}) =>isActive?activClassName:defClassName}
