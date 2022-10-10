@@ -16,6 +16,8 @@ import DialogsContainer
     from "./components/Dialogs/DialogsContainer";
 import NavBarContainer
     from "./components/NavBar/NavBarContainer";
+import FindUsers
+    from "./components/FindUsers/FindUsers";
 
 const App =() => {
   return (
@@ -35,6 +37,8 @@ const App =() => {
                          element={<News/>}/>
                   <Route path="/music"
                          element={<Music/>}/>
+                  <Route path="/users"
+                         element={<FindUsers/>}/>
                   <Route path="/settings"
                          element={<Settings/>}/>
               </Routes>
