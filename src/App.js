@@ -29,18 +29,18 @@ const App =() => {
               <Header/>
               <NavBarContainer />
               <Routes>
-                  <Route path="/profile"
+                  <Route path="/profile/"
                          element={<Profile />}/>
                   <Route path="dialogs/*"
                          element={
                              <DialogsContainer />}/>
-                  <Route path="/news"
+                  <Route path="/news/"
                          element={<News/>}/>
-                  <Route path="/music"
+                  <Route path="/music/"
                          element={<Music/>}/>
-                  <Route path="/users"
+                  <Route path="/users/"
                          element={<FindUsersContainer/>}/>
-                  <Route path="/settings"
+                  <Route path="/settings/"
                          element={<Settings/>}/>
               </Routes>
           </div>

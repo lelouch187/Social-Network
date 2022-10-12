@@ -1,4 +1,3 @@
-import ava from "./../img/ava.jpg"
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SETUSERS'

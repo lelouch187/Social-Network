@@ -1,12 +1,13 @@
 import ava from "../../img/ava.jpg";
+import axios from "axios";
+
 
 const FindUsers = (props) => {
 
     if (props.users.length === 0) {
-        props.setUsers([{fullName:"Антон С.",photo: ava,followed: false, status:"Всем прив",location:{country:"Россия",city:"Новосибирск"}, id: 1},
-            {fullName:"Захар Н.", photo: ava,followed: true, status:"На работе 24/7",location:{country:"Россия",city:"Барнаул"}, id: 2},
-            {fullName:"Александр Е.", photo: ava,followed: true, status:"Го доту",location:{country:"Россия",city:"Ишим"}, id: 3},
-        ])}
+        axios.get('https://social-network.samuraijs.com/api/1.0/users')
+            .then (promise => props.setUsers(promise.data.users))
+    }
 
     return <div className="col-span-8">
         {props.users.map(u => <div
@@ -15,7 +16,7 @@ const FindUsers = (props) => {
             <div className="px-[35px]">
                 <img
                     className="h-[75px] w-[75px] rounded-full mx-auto"
-                    src={u.photo}
+                    src={u.photos.small != null ? u.photos.small : ava}
                     alt="avatar"/>
                 {u.followed ?
                     <button onClick={()=>{props.unfollow(u.id)}}
@@ -31,12 +32,12 @@ const FindUsers = (props) => {
             <div
                 className="w-[100%] flex justify-between pr-[15px]">
                 <div className=" flex flex-col ">
-                    <p className="text-2xl mb-[20px]">{u.fullName}</p>
+                    <p className="text-2xl mb-[20px]">{u.name}</p>
                     <p className="text-xl italic text-slate-400">{u.status}</p>
                 </div>
                 <div className="text-2xl text-right">
-                    <p>{u.location.city},</p>
-                    <p>{u.location.country}</p>
+                    <p>{'u.location.city'},</p>
+                    <p>{'u.location.country'}</p>
                 </div>
             </div>
         </div>)
